@@ -82,7 +82,7 @@ function App() {
                     direction="row"
                   >
                     <Button
-                      icon={<FormClose />}
+                      icon={<FormClose size='large' />}
                       onClick={() => setShowSidebar(false)}
                     />
                   </Box>
