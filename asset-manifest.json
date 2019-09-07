@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/cs-calc/static/js/main.5d10761a.chunk.js",
-    "main.js.map": "/cs-calc/static/js/main.5d10761a.chunk.js.map",
+    "main.js": "/cs-calc/static/js/main.7bc1a835.chunk.js",
+    "main.js.map": "/cs-calc/static/js/main.7bc1a835.chunk.js.map",
     "runtime~main.js": "/cs-calc/static/js/runtime~main.c9316a13.js",
     "runtime~main.js.map": "/cs-calc/static/js/runtime~main.c9316a13.js.map",
-    "static/js/2.d1a6c404.chunk.js": "/cs-calc/static/js/2.d1a6c404.chunk.js",
-    "static/js/2.d1a6c404.chunk.js.map": "/cs-calc/static/js/2.d1a6c404.chunk.js.map",
+    "static/js/2.2ca94e42.chunk.js": "/cs-calc/static/js/2.2ca94e42.chunk.js",
+    "static/js/2.2ca94e42.chunk.js.map": "/cs-calc/static/js/2.2ca94e42.chunk.js.map",
     "index.html": "/cs-calc/index.html",
-    "precache-manifest.ae14e969068b524f891869aee96e26ec.js": "/cs-calc/precache-manifest.ae14e969068b524f891869aee96e26ec.js",
+    "precache-manifest.77c64331608532cd4baa315f4b57620f.js": "/cs-calc/precache-manifest.77c64331608532cd4baa315f4b57620f.js",
     "service-worker.js": "/cs-calc/service-worker.js"
   }
 }
