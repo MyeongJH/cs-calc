@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Box, Button, CheckBox, Form, FormField, TextArea } from 'grommet';
-import { Add } from 'grommet-icons';
+import { Box, Button, CheckBox, Form, FormField, TextArea, Text, DataTable } from 'grommet';
+import { Add, LinkDown } from 'grommet-icons';
 
 function CalcForm() {
     const [location, setA] = useState('');
@@ -18,6 +18,13 @@ function CalcForm() {
     ];
 
     const [text, setText] = useState(' ');
+    const [data, setData] = useState([]);
+    const columns = [
+        { property: 'name', header: <Text>이름</Text>, primary: true },
+        { property: 'location', header: '장소' },
+        { property: 'cost', header: '비용' },
+    ];
+    const [showTable, setShowTable] = useState(false);
 
     function handleChangeA({ target }) {
         setA(target.value);
@@ -32,13 +39,15 @@ function CalcForm() {
         let arr = [];
         checked.map(d => {
             arr.push({
-                이름: d,
-                장소: location,
-                총액: Math.round(cost),
+                name: d,
+                location: location,
+                cost: Math.round(cost),
             });
         });
-        let toString = arr.map(d => JSON.stringify(d) + '\n');
-        setText(toString);
+        // let toString = arr.map(d => JSON.stringify(d) + '\n');
+        // setText(toString);
+        setShowTable(true);
+        setData(arr);
     }
 
     function onCheckAll(event) {
@@ -91,10 +100,18 @@ function CalcForm() {
                         />
                     ))}
                 </Box>
-                <Box></Box>
-                <Button hoverIndicator icon={<Add />} onClick={toSave} />
+                <Box align="center" pad="large">
+                    <Button hoverIndicator icon={<LinkDown />} onClick={toSave} />
+                </Box>
             </Form>
-            <TextArea value={text} />
+            {/* <TextArea value={text} /> */}
+            {showTable ? (
+                <Box align="center" pad="large">
+                    <DataTable columns={columns} data={data} step={10} />
+                </Box>
+            ) : (
+                ''
+            )}
         </div>
     );
 }
