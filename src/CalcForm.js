@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, CheckBox, Form, FormField, TextArea, Text, DataTable } from 'grommet';
-import { Add, LinkDown } from 'grommet-icons';
+import { Table, TableAdd } from 'grommet-icons';
 
 function CalcForm() {
     const [location, setA] = useState('');
@@ -100,8 +100,9 @@ function CalcForm() {
                         />
                     ))}
                 </Box>
-                <Box align="center" pad="large">
-                    <Button hoverIndicator icon={<LinkDown />} onClick={toSave} />
+                <Box align="righit" pad="large" direction="row" gap="small">
+                    <Button icon={<TableAdd />} plain={false} />
+                    <Button primary icon={<Table />} plain={false} onClick={toSave} />
                 </Box>
             </Form>
             {/* <TextArea value={text} /> */}
