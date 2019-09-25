@@ -68,6 +68,7 @@ const TagInput = ({ value = [], onAdd, onChange, onRemove, ...rest }) => {
                 align="center"
                 pad={{ horizontal: 'xsmall' }}
                 ref={boxRef}
+                wrap
             >
                 {value.length > 0 && renderValue()}
                 <Box flex style={{ minWidth: '120px' }}>
