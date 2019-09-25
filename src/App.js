@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, Collapsible, Heading, Grommet, Layer, ResponsiveContext } from 'grommet';
 import { FormClose, Calculator } from 'grommet-icons';
 import CalcForm from './CalcForm';
+import TagMember from './TagMember.js';
 
 const theme = {
     global: {
@@ -30,8 +31,14 @@ const AppBar = props => (
     />
 );
 
+// const members = ['김선균','명재환','양석우','유근영','유수혁','윤성현','장태양','최기석'];
+
 function App() {
     const [showSidebar, setShowSidebar] = useState(false);
+    const [members, setMembers] =  useState([]);
+    const memberUpdate = (v) => {
+        setMembers(v);
+    };
 
     return (
         <Grommet theme={theme} full>
@@ -49,7 +56,8 @@ function App() {
                         </AppBar>
                         <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
                             <Box flex align="center" justify="center">
-                                <CalcForm />
+                                <TagMember members={members} memberUpdate={memberUpdate}/>
+                                <CalcForm members={members}/>
                             </Box>
                             {!showSidebar || size !== 'small' ? (
                                 <Collapsible direction="horizontal" open={showSidebar}>

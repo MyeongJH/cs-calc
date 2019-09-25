@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import { Box, Button, CheckBox, Form, FormField, TextArea, Text, DataTable } from 'grommet';
 import { Table, TableAdd } from 'grommet-icons';
 
-function CalcForm() {
+function CalcForm({members}) {
     const [location, setA] = useState('');
     const [totalCost, setB] = useState(0);
     const [checked, setChecked] = useState([]);
-    const members = [
-        '김선균',
-        '명재환',
-        '양석우',
-        '유근영',
-        '유수혁',
-        '윤성현',
-        '장태양',
-        '최기석',
-    ];
+    // const members = memberList;
+    // [
+    //     '김선균',
+    //     '명재환',
+    //     '양석우',
+    //     '유근영',
+    //     '유수혁',
+    //     '윤성현',
+    //     '장태양',
+    //     '최기석',
+    // ];
 
     const [text, setText] = useState(' ');
     const [data, setData] = useState([]);
