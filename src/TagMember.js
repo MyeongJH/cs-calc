@@ -101,7 +101,6 @@ const TagMember = ({members,memberUpdate}) => {
             newTags.splice(removeIndex, 1);
         }
         setSelectedTags(newTags);
-        memberUpdate(newTags);
     };
 
     const onAddTag = tag => setSelectedTags([...selectedTags, tag]);
@@ -121,6 +120,7 @@ const TagMember = ({members,memberUpdate}) => {
                     onRemove={onRemoveTag}
                     onAdd={onAddTag}
                     onChange={({ target: { value } }) => onFilterSuggestion(value)}
+                    memberUpdate={memberUpdate(selectedTags)}
                 />
     );
 };

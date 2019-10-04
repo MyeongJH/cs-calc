@@ -45,8 +45,6 @@ function CalcForm({members}) {
                 cost: Math.round(cost),
             });
         });
-        // let toString = arr.map(d => JSON.stringify(d) + '\n');
-        // setText(toString);
         setShowTable(true);
         setData(arr);
     }

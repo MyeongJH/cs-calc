@@ -36,9 +36,7 @@ const AppBar = props => (
 function App() {
     const [showSidebar, setShowSidebar] = useState(false);
     const [members, setMembers] =  useState([]);
-    const memberUpdate = (v) => {
-        setMembers(v);
-    };
+    const memberUpdate = (v) => setMembers(v);
 
     return (
         <Grommet theme={theme} full>
