@@ -99,7 +99,7 @@ function CalcForm({members}) {
                         />
                     ))}
                 </Box>
-                <Box align="righit" pad="large" direction="row" gap="small">
+                <Box align="center" pad="large" direction="row" gap="small">
                     <Button icon={<TableAdd />} plain={false} />
                     <Button primary icon={<Table />} plain={false} onClick={toSave} />
                 </Box>

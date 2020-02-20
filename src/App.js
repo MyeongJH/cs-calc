@@ -42,7 +42,7 @@ function App() {
         <Grommet theme={theme} full>
             <ResponsiveContext.Consumer>
                 {size => (
-                    <Box fill>
+                    <Box>
                         <AppBar>
                             <Heading level="2" margin="none">
                                 회식비 계산

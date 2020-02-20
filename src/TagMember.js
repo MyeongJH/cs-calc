@@ -64,14 +64,17 @@ const TagInput = ({ value = [], onAdd, onChange, onRemove, ...rest }) => {
     return (
         <Keyboard onEnter={onEnter}>
             <Box
-                direction="row"
+                direction="column"
                 align="center"
                 pad={{ horizontal: 'xsmall' }}
                 ref={boxRef}
-                wrap
-            >
-                {value.length > 0 && renderValue()}
-                <Box flex style={{ minWidth: '120px' }}>
+                wrap>
+                <Box direction="row">
+                    {value.length > 0 && renderValue()}
+                </Box>                    
+                <Box 
+                    flex style={{ minWidth: '120px' }}
+                    direction="row">
                     <TextInput
                         type="search"
                         plain
@@ -103,7 +106,10 @@ const TagMember = ({members,memberUpdate}) => {
         setSelectedTags(newTags);
     };
 
-    const onAddTag = tag => setSelectedTags([...selectedTags, tag]);
+    const onAddTag = tag => {
+        if (selectedTags.indexOf(tag) == -1)
+            setSelectedTags([...selectedTags, tag])
+    };
 
     const onFilterSuggestion = value =>
         setSuggestions(
