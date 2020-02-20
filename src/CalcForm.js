@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, CheckBox, Form, FormField, TextArea, Text, DataTable } from 'grommet';
+import { Box, Button, CheckBox, Form, FormField, Text, DataTable } from 'grommet';
 import { Table, TableAdd } from 'grommet-icons';
 
 function CalcForm({members}) {
@@ -18,7 +18,6 @@ function CalcForm({members}) {
     //     '최기석',
     // ];
 
-    const [text, setText] = useState(' ');
     const [data, setData] = useState([]);
     const columns = [
         { property: 'name', header: <Text>이름</Text>, primary: true },
@@ -38,7 +37,7 @@ function CalcForm({members}) {
     function toSave() {
         let cost = totalCost / checked.length;
         let arr = [];
-        checked.map(d => {
+        checked.forEach(d => {
             arr.push({
                 name: d,
                 location: location,
@@ -104,7 +103,6 @@ function CalcForm({members}) {
                     <Button primary icon={<Table />} plain={false} onClick={toSave} />
                 </Box>
             </Form>
-            {/* <TextArea value={text} /> */}
             {showTable ? (
                 <Box align="center" pad="large">
                     <DataTable columns={columns} data={data} step={10} />

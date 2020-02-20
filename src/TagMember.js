@@ -69,7 +69,8 @@ const TagInput = ({ value = [], onAdd, onChange, onRemove, ...rest }) => {
                 pad={{ horizontal: 'xsmall' }}
                 ref={boxRef}
                 wrap>
-                <Box direction="row">
+                <Box justify="center" direction="row" align="center"
+                    pad={{ horizontal: 'xsmall' }} wrap>
                     {value.length > 0 && renderValue()}
                 </Box>                    
                 <Box 
