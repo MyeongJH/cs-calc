@@ -25,6 +25,8 @@ function CalcForm({members}) {
         { property: 'cost', header: '비용' },
     ];
     const [showTable, setShowTable] = useState(false);
+    const [showNotice, setNotice] = useState(false);
+    const [notiText, setNotiText] = useState('');
 
     function handleChangeA({ target }) {
         setA(target.value);
@@ -32,6 +34,18 @@ function CalcForm({members}) {
 
     function handleChangeB({ target }) {
         setB(target.value);
+    }
+
+    function toShow() {
+        if (checked.length === 0) {
+            toNoti();
+            setShowTable(false);
+            setNotice(true);
+        } else {
+            toSave();
+            setShowTable(true);
+            setNotice(false);
+        }
     }
 
     function toSave() {
@@ -44,8 +58,18 @@ function CalcForm({members}) {
                 cost: Math.round(cost),
             });
         });
-        setShowTable(true);
         setData(arr);
+    }
+
+    function toNoti() {
+        let text = '참석자를 선택해주세요.\n';
+        if (location === '') {
+            text += '장소를 미입력했습니다.\n'
+        }
+        if (totalCost === 0) {
+            text += '금액을 미입력했습니다.\n'
+        }
+        setNotiText(text);
     }
 
     function onCheckAll(event) {
@@ -84,8 +108,8 @@ function CalcForm({members}) {
                     }}
                 >
                     <CheckBox
-                        checked={checked.length === 8}
-                        indeterminate={checked.length > 0 && checked.length < 8}
+                        checked={checked.length > 0}
+                        //indeterminate={checked.length > 0 && checked.length < 8}
                         label="All"
                         onChange={onCheckAll}
                     />
@@ -100,12 +124,21 @@ function CalcForm({members}) {
                 </Box>
                 <Box align="center" pad="large" direction="row" gap="small">
                     <Button icon={<TableAdd />} plain={false} />
-                    <Button primary icon={<Table />} plain={false} onClick={toSave} />
+                    <Button primary icon={<Table />} plain={false} onClick={toShow} />
                 </Box>
             </Form>
             {showTable ? (
                 <Box align="center" pad="large">
                     <DataTable columns={columns} data={data} step={10} />
+                </Box>
+            ) : (
+                ''
+            )}
+            {showNotice ? (
+                <Box align="center" pad="large">
+                    {notiText.split('\n').map(line => {
+                        return (<span>{line}</span>);
+                    })}
                 </Box>
             ) : (
                 ''
